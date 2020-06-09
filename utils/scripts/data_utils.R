@@ -12,7 +12,7 @@ list_highlights <- function(highlights_index_=NULL, team_=NULL, season_=NULL) {
   min_season <- 2017
   max_season <- 2019
   
-  if(!is.null(highlights_index_)) {
+  if(is.null(highlights_index_)) {
     highlights_index_ <- readr::read_tsv("https://raw.githubusercontent.com/asonty/ngs_highlights/intro/utils/data/nfl_ngs_highlights_index.tsv")
   }
   
@@ -38,7 +38,7 @@ list_highlights <- function(highlights_index_=NULL, team_=NULL, season_=NULL) {
 }
 
 get_play_data <- function(highlights_index_=NULL, playKey_) {
-  if(!is.null(highlights_index_)) {
+  if(is.null(highlights_index_)) {
     highlights_index_ <- readr::read_tsv("https://raw.githubusercontent.com/asonty/ngs_highlights/intro/utils/data/nfl_ngs_highlights_index.tsv")
   }
   
