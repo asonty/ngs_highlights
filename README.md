@@ -2320,7 +2320,7 @@ at evenly spaced
 intervals:
 
 ``` r
-plot_play_sequence(play_data, first_frame_ = first_frame, final_frame_ = final_frame, n_=6, velocities_ = T, voronoi_ = T)
+plot_play_sequence(play_data, first_frame_ = first_frame, final_frame_ = final_frame, n_ = 6, velocities_ = T, voronoi_ = T)
 ```
 
 <img src="README_files/figure-gfm/plot_play_seq-1.png" style="display: block; margin: auto;" />
