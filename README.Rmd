@@ -46,10 +46,8 @@ library(readr)
 
 ```{r load_scripts, message=F}
 # * load helper functions ----
-source_url("https://raw.githubusercontent.com/asonty/ngs_highlights/intro/utils/scripts/data_utils.R")
-source_url("https://raw.githubusercontent.com/asonty/ngs_highlights/intro/utils/scripts/plot_utils.R")
-# source("./utils/scripts/data_utils.R")
-# source("./utils/scripts/plot_utils.R")
+source_url("https://raw.githubusercontent.com/asonty/ngs_highlights/master/utils/scripts/data_utils.R")
+source_url("https://raw.githubusercontent.com/asonty/ngs_highlights/master/utils/scripts/plot_utils.R")
 ```
 
 ***

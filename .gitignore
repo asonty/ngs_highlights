@@ -2,4 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
+ngs_highlights.Rproj
 test_funcs.R
+.gitignore

@@ -13,7 +13,7 @@ fetch_highlights_list <- function(highlights_index_=NULL, team_=NULL, season_=NU
   max_season <- 2019
   
   if(is.null(highlights_index_)) {
-    highlights_index_ <- suppressMessages(readr::read_tsv("https://raw.githubusercontent.com/asonty/ngs_highlights/intro/utils/data/nfl_ngs_highlights_index.tsv"))
+    highlights_index_ <- suppressMessages(readr::read_tsv("https://raw.githubusercontent.com/asonty/ngs_highlights/master/utils/data/nfl_ngs_highlights_index.tsv"))
   }
   
   if (!is.null(team_)) {
@@ -45,7 +45,7 @@ fetch_play_data <- function(highlights_index_=NULL, playKey_) {
   play <- highlights_index_ %>% filter(playKey == playKey_)
   
   play_file <- paste(
-    "https://raw.githubusercontent.com/asonty/ngs_highlights/intro/play_data/",
+    "https://raw.githubusercontent.com/asonty/ngs_highlights/master/play_data/",
     play$season, "_",
     play$team, "_",
     play$gameId, "_",
