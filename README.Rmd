@@ -1,7 +1,6 @@
 ---
 title: "Getting Started With NFL Highlights Tracking Data"
 # author: "Adam Sonty"
-# date: "6/9/2020"
 output: github_document
 always_allow_html: true
 ---

@@ -50,10 +50,8 @@ library(readr)
 
 ``` r
 # * load helper functions ----
-source_url("https://raw.githubusercontent.com/asonty/ngs_highlights/intro/utils/scripts/data_utils.R")
-source_url("https://raw.githubusercontent.com/asonty/ngs_highlights/intro/utils/scripts/plot_utils.R")
-# source("./utils/scripts/data_utils.R")
-# source("./utils/scripts/plot_utils.R")
+source_url("https://raw.githubusercontent.com/asonty/ngs_highlights/master/utils/scripts/data_utils.R")
+source_url("https://raw.githubusercontent.com/asonty/ngs_highlights/master/utils/scripts/plot_utils.R")
 ```
 
 -----
@@ -75,7 +73,7 @@ highlights <- fetch_highlights_list(team_ = "BAL", season_ = 2019)
 
 <!--html_preserve-->
 
-<div id="exhegfymdp" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wnovgbvvkz" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 
 <table class="gt_table">
 
@@ -903,7 +901,7 @@ play_data <- fetch_play_data(playKey_ = 242)
 
 <!--html_preserve-->
 
-<div id="bulkiffspw" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xtevqgtgkt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 
 <table class="gt_table">
 
