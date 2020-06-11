@@ -15,13 +15,13 @@ _This is meant to be a very simple introduction to working with the tracking dat
 ***
 ### Intro
 
-Tracking data has been billed as "the future of sports analytics," but it's notoriously difficult to acquire and use. This repo was created to help alleviate those issues; it contains tracking data from the NFL's Next Gen Stats (NGS) Highlights for 2017-2019 seasons, as well as a few Rscripts with helper functions to ease the process of working with the data.
+Tracking data has been billed as "the future of sports analytics," but it's notoriously difficult to both acquire and use. This repo was created to help alleviate those issues; it contains tracking data from the NFL's Next Gen Stats (NGS) Highlights for 2017-2019 seasons, as well as a few Rscripts with helper functions to make it easier to work with the data.
 
 In this walk-through, we will:  
 
 - import an NGS Highlight play's tracking data  
 - plot the frames from a play (with some extras)
-- animate a play  
+- animate a play
 
 ***
 ### Setting Things Up
@@ -38,17 +38,18 @@ devtools::install_github('thomasp85/gganimate')
 # * load packages ----
 library(devtools)
 library(dplyr)
-library(ggplot2)
-library(ggforce)
 library(gganimate)
+library(ggforce)
+library(ggplot2)
 library(readr)
 ```
 
 ```{r load_scripts, message=F}
 # * load helper functions ----
-# source_url("https://raw.githubusercontent.com/asonty/ngs_highlights/intro/utils/scripts/data_utils.R")
-source("./utils/scripts/data_utils.R")
-source("./utils/scripts/plot_utils.R")
+source_url("https://raw.githubusercontent.com/asonty/ngs_highlights/intro/utils/scripts/data_utils.R")
+source_url("https://raw.githubusercontent.com/asonty/ngs_highlights/intro/utils/scripts/plot_utils.R")
+# source("./utils/scripts/data_utils.R")
+# source("./utils/scripts/plot_utils.R")
 ```
 
 ***
@@ -58,7 +59,7 @@ source("./utils/scripts/plot_utils.R")
 
 We can use the `fetch_highlights_list()` function to grab a list of the NGS Highlights in this repo, and by using the `team_` and `season_` arguments, we can filter the list down.
 
-Lamar Jackson had some ridiculous plays in his MVP season, so let's look at the Ravens' highlights from 2019:
+Lamar Jackson had some ridiculous plays during his MVP season, so let's look at the Ravens' highlights from 2019:
 ```{r fetch_highlights}
 highlights <- fetch_highlights_list(team_ = "BAL", season_ = 2019)
 ```
@@ -77,14 +78,14 @@ play_data <- fetch_play_data(playKey_ = 242)
 ```
 
 ```{r echo=F}
-play_data %>% sample_n(5) %>% gt()
+play_data %>% head(5) %>% gt()
 ```
 ***
 ### Visualizing Plays
 
-In my opinion, the most fun way to get started with tracking data is through visualizations. To that end, we can use the `plot_play_frame()` function to plot a given frame from a play.
+In my opinion, the most fun way to get started with tracking data is through visualizations. To that end, we can use the `plot_play_frame()` function to plot any given frame in a play.
 
-It's important to note that the tracking data contains the entire runtime of the play, including all of the dead time prior to the line being set, and in some cases even the team celebrations after a touchdown is scored.  So let's first find the 'endpoints' of the play:
+It's important to note that the tracking data contains the entire runtime of the play, including all of the dead time prior to the line being set, and in some cases even the team celebrations after a touchdown is scored.  So let's first find the 'frame interval' of the play:
 
 ```{r find_frames}
 first_frame <- play_data %>%
@@ -127,7 +128,7 @@ In past Big Data Bowls, some of the top submissions borrowed a concept from socc
 plot_play_frame(play_data_ = play_data, frame_ = 220, velocities_ = F, voronoi_ = T)
 ```
 
-The final in-built function we can use is `plot_play_sequence()`, which plots frames between a `first_frame_` and `final_frame_` at evenly spaced intervals:
+The final in-built function we can use is `plot_play_sequence()`, which plots `n_` number of frames between a `first_frame_` and `final_frame_` at evenly spaced intervals:
 
 ```{r plot_play_seq, fig.height = 22, fig.width = 8, fig.align = "center"}
 plot_play_sequence(play_data, first_frame_ = first_frame, final_frame_ = final_frame, n_=6, velocities_ = T, voronoi_ = T)
@@ -185,7 +186,7 @@ player_data$v_x <- sin(player_data$dir_rad) * player_data$s
 player_data$v_y <- cos(player_data$dir_rad) * player_data$s
 ```
 
-Next, we need to identify the fastest players at each frame, and merge that information with our `player_data`:
+Finally, we'll identify the fastest players on each team in every frame, and merge that information with our `player_data`:
 
 ```{r id_fastest_players}
 #  there are assuredly better ways to do this
@@ -301,6 +302,8 @@ play_anim <- animate(
 ```{r, echo=F}
 anim_save("./README_files/figure-gfm/play_anim_example.gif", play_anim)
 ```
+
+![](README_files/figure-gfm/play_anim_example.gif)
 
 
 

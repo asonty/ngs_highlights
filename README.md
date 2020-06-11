@@ -12,11 +12,11 @@ from the most recent Big Data Bowl.*
 ### Intro
 
 Tracking data has been billed as “the future of sports analytics,” but
-it’s notoriously difficult to acquire and use. This repo was created to
-help alleviate those issues; it contains tracking data from the NFL’s
-Next Gen Stats (NGS) Highlights for 2017-2019 seasons, as well as a few
-Rscripts with helper functions to ease the process of working with the
-data.
+it’s notoriously difficult to both acquire and use. This repo was
+created to help alleviate those issues; it contains tracking data from
+the NFL’s Next Gen Stats (NGS) Highlights for 2017-2019 seasons, as well
+as a few Rscripts with helper functions to make it easier to work with
+the data.
 
 In this walk-through, we will:
 
@@ -42,17 +42,18 @@ devtools::install_github('thomasp85/gganimate')
 # * load packages ----
 library(devtools)
 library(dplyr)
-library(ggplot2)
-library(ggforce)
 library(gganimate)
+library(ggforce)
+library(ggplot2)
 library(readr)
 ```
 
 ``` r
 # * load helper functions ----
-# source_url("https://raw.githubusercontent.com/asonty/ngs_highlights/intro/utils/scripts/data_utils.R")
-source("./utils/scripts/data_utils.R")
-source("./utils/scripts/plot_utils.R")
+source_url("https://raw.githubusercontent.com/asonty/ngs_highlights/intro/utils/scripts/data_utils.R")
+source_url("https://raw.githubusercontent.com/asonty/ngs_highlights/intro/utils/scripts/plot_utils.R")
+# source("./utils/scripts/data_utils.R")
+# source("./utils/scripts/plot_utils.R")
 ```
 
 -----
@@ -65,8 +66,8 @@ We can use the `fetch_highlights_list()` function to grab a list of the
 NGS Highlights in this repo, and by using the `team_` and `season_`
 arguments, we can filter the list down.
 
-Lamar Jackson had some ridiculous plays in his MVP season, so let’s look
-at the Ravens’ highlights from 2019:
+Lamar Jackson had some ridiculous plays during his MVP season, so let’s
+look at the Ravens’ highlights from 2019:
 
 ``` r
 highlights <- fetch_highlights_list(team_ = "BAL", season_ = 2019)
@@ -74,7 +75,7 @@ highlights <- fetch_highlights_list(team_ = "BAL", season_ = 2019)
 
 <!--html_preserve-->
 
-<div id="yrjqslljjk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="exhegfymdp" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 
 <table class="gt_table">
 
@@ -902,7 +903,7 @@ play_data <- fetch_play_data(playKey_ = 242)
 
 <!--html_preserve-->
 
-<div id="qpyxkrxrhw" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="bulkiffspw" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 
 <table class="gt_table">
 
@@ -1238,103 +1239,323 @@ CIN
 
 <td class="gt_row gt_right">
 
-NA
+0
 
 </td>
 
 <td class="gt_row gt_right">
 
-NA
+1
 
 </td>
 
 <td class="gt_row gt_left">
 
-NA
+CIN
 
 </td>
 
 <td class="gt_row gt_right">
 
-286
+0
 
 </td>
 
 <td class="gt_row gt_left">
 
-ball
+Geno Atkins
 
 </td>
 
 <td class="gt_row gt_left">
 
-NA
+ATK216644
 
 </td>
 
 <td class="gt_row gt_left">
 
-NA
+00-0027720
 
 </td>
 
 <td class="gt_row gt_right">
 
-NA
+97
 
 </td>
 
 <td class="gt_row gt_right">
 
-NA
+496762
 
 </td>
 
 <td class="gt_row gt_left">
 
-NA
+DT
 
 </td>
 
 <td class="gt_row gt_left">
 
-NA
+DL
 
 </td>
 
 <td class="gt_row gt_left">
 
-2019-11-10 19:46:48
+2019-11-10 19:46:19
 
 </td>
 
 <td class="gt_row gt_right">
 
-\-1.37
+54.74
 
 </td>
 
 <td class="gt_row gt_right">
 
-16.86
+29.83
 
 </td>
 
 <td class="gt_row gt_right">
 
-6.97
+0.01
 
 </td>
 
 <td class="gt_row gt_right">
 
-NA
+80.80
 
 </td>
 
 <td class="gt_row gt_right">
 
-NA
+95.59
+
+</td>
+
+<td class="gt_row gt_left">
+
+huddle\_start\_offense
+
+</td>
+
+<td class="gt_row gt_left">
+
+(8:18) (Shotgun) L.Jackson left end for 47 yards, TOUCHDOWN.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_right">
+
+2019111001
+
+</td>
+
+<td class="gt_row gt_right">
+
+2257
+
+</td>
+
+<td class="gt_row gt_left">
+
+play\_type\_rush
+
+</td>
+
+<td class="gt_row gt_right">
+
+2019
+
+</td>
+
+<td class="gt_row gt_left">
+
+REG
+
+</td>
+
+<td class="gt_row gt_right">
+
+10
+
+</td>
+
+<td class="gt_row gt_right">
+
+10
+
+</td>
+
+<td class="gt_row gt_right">
+
+28
+
+</td>
+
+<td class="gt_row gt_left">
+
+left
+
+</td>
+
+<td class="gt_row gt_right">
+
+3
+
+</td>
+
+<td class="gt_row gt_center">
+
+08:18:00
+
+</td>
+
+<td class="gt_row gt_right">
+
+2
+
+</td>
+
+<td class="gt_row gt_right">
+
+3
+
+</td>
+
+<td class="gt_row gt_left">
+
+CIN 47
+
+</td>
+
+<td class="gt_row gt_left">
+
+CIN
+
+</td>
+
+<td class="gt_row gt_right">
+
+47
+
+</td>
+
+<td class="gt_row gt_right">
+
+57
+
+</td>
+
+<td class="gt_row gt_right">
+
+0
+
+</td>
+
+<td class="gt_row gt_right">
+
+1
+
+</td>
+
+<td class="gt_row gt_left">
+
+CIN
+
+</td>
+
+<td class="gt_row gt_right">
+
+1
+
+</td>
+
+<td class="gt_row gt_left">
+
+Geno Atkins
+
+</td>
+
+<td class="gt_row gt_left">
+
+ATK216644
+
+</td>
+
+<td class="gt_row gt_left">
+
+00-0027720
+
+</td>
+
+<td class="gt_row gt_right">
+
+97
+
+</td>
+
+<td class="gt_row gt_right">
+
+496762
+
+</td>
+
+<td class="gt_row gt_left">
+
+DT
+
+</td>
+
+<td class="gt_row gt_left">
+
+DL
+
+</td>
+
+<td class="gt_row gt_left">
+
+2019-11-10 19:46:19
+
+</td>
+
+<td class="gt_row gt_right">
+
+54.74
+
+</td>
+
+<td class="gt_row gt_right">
+
+29.83
+
+</td>
+
+<td class="gt_row gt_right">
+
+0.01
+
+</td>
+
+<td class="gt_row gt_right">
+
+80.80
+
+</td>
+
+<td class="gt_row gt_right">
+
+98.23
 
 </td>
 
@@ -1476,305 +1697,85 @@ CIN
 
 <td class="gt_row gt_right">
 
-96
-
-</td>
-
-<td class="gt_row gt_left">
-
-Nick Vigil
-
-</td>
-
-<td class="gt_row gt_left">
-
-VIG247556
-
-</td>
-
-<td class="gt_row gt_left">
-
-00-0032892
-
-</td>
-
-<td class="gt_row gt_right">
-
-59
-
-</td>
-
-<td class="gt_row gt_right">
-
-2555528
-
-</td>
-
-<td class="gt_row gt_left">
-
-OLB
-
-</td>
-
-<td class="gt_row gt_left">
-
-LB
-
-</td>
-
-<td class="gt_row gt_left">
-
-2019-11-10 19:46:29
-
-</td>
-
-<td class="gt_row gt_right">
-
-51.77
-
-</td>
-
-<td class="gt_row gt_right">
-
-30.73
-
-</td>
-
-<td class="gt_row gt_right">
-
-1.37
-
-</td>
-
-<td class="gt_row gt_right">
-
-118.88
-
-</td>
-
-<td class="gt_row gt_right">
-
-188.60
-
-</td>
-
-<td class="gt_row gt_left">
-
-NA
-
-</td>
-
-<td class="gt_row gt_left">
-
-(8:18) (Shotgun) L.Jackson left end for 47 yards, TOUCHDOWN.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td class="gt_row gt_right">
-
-2019111001
-
-</td>
-
-<td class="gt_row gt_right">
-
-2257
-
-</td>
-
-<td class="gt_row gt_left">
-
-play\_type\_rush
-
-</td>
-
-<td class="gt_row gt_right">
-
-2019
-
-</td>
-
-<td class="gt_row gt_left">
-
-REG
-
-</td>
-
-<td class="gt_row gt_right">
-
-10
-
-</td>
-
-<td class="gt_row gt_right">
-
-10
-
-</td>
-
-<td class="gt_row gt_right">
-
-28
-
-</td>
-
-<td class="gt_row gt_left">
-
-left
-
-</td>
-
-<td class="gt_row gt_right">
-
-3
-
-</td>
-
-<td class="gt_row gt_center">
-
-08:18:00
-
-</td>
-
-<td class="gt_row gt_right">
-
 2
 
 </td>
 
-<td class="gt_row gt_right">
+<td class="gt_row gt_left">
 
-3
+Geno Atkins
 
 </td>
 
 <td class="gt_row gt_left">
 
-CIN 47
+ATK216644
 
 </td>
 
 <td class="gt_row gt_left">
 
-CIN
+00-0027720
 
 </td>
 
 <td class="gt_row gt_right">
 
-47
+97
 
 </td>
 
 <td class="gt_row gt_right">
 
-57
-
-</td>
-
-<td class="gt_row gt_right">
-
-1
-
-</td>
-
-<td class="gt_row gt_right">
-
-0
+496762
 
 </td>
 
 <td class="gt_row gt_left">
 
-BAL
-
-</td>
-
-<td class="gt_row gt_right">
-
-47
+DT
 
 </td>
 
 <td class="gt_row gt_left">
 
-Miles Boykin
+DL
 
 </td>
 
 <td class="gt_row gt_left">
 
-BOY619498
-
-</td>
-
-<td class="gt_row gt_left">
-
-00-0035703
+2019-11-10 19:46:20
 
 </td>
 
 <td class="gt_row gt_right">
 
-80
+54.74
 
 </td>
 
 <td class="gt_row gt_right">
 
-2562631
-
-</td>
-
-<td class="gt_row gt_left">
-
-WR
-
-</td>
-
-<td class="gt_row gt_left">
-
-WR
-
-</td>
-
-<td class="gt_row gt_left">
-
-2019-11-10 19:46:24
+29.83
 
 </td>
 
 <td class="gt_row gt_right">
 
-63.44
+0.01
 
 </td>
 
 <td class="gt_row gt_right">
 
-30.03
+81.44
 
 </td>
 
 <td class="gt_row gt_right">
 
-0.85
-
-</td>
-
-<td class="gt_row gt_right">
-
-235.32
-
-</td>
-
-<td class="gt_row gt_right">
-
-140.71
+94.54
 
 </td>
 
@@ -1916,85 +1917,85 @@ CIN
 
 <td class="gt_row gt_right">
 
-353
+3
 
 </td>
 
 <td class="gt_row gt_left">
 
-William Jackson
+Geno Atkins
 
 </td>
 
 <td class="gt_row gt_left">
 
-JAC645516
+ATK216644
 
 </td>
 
 <td class="gt_row gt_left">
 
-00-0033107
+00-0027720
 
 </td>
 
 <td class="gt_row gt_right">
 
-22
+97
 
 </td>
 
 <td class="gt_row gt_right">
 
-2556367
+496762
 
 </td>
 
 <td class="gt_row gt_left">
 
-CB
+DT
 
 </td>
 
 <td class="gt_row gt_left">
 
-DB
+DL
 
 </td>
 
 <td class="gt_row gt_left">
 
-2019-11-10 19:46:55
+2019-11-10 19:46:20
 
 </td>
 
 <td class="gt_row gt_right">
 
-18.98
+54.74
 
 </td>
 
 <td class="gt_row gt_right">
 
-6.39
+29.84
 
 </td>
 
 <td class="gt_row gt_right">
 
-1.64
+0.01
 
 </td>
 
 <td class="gt_row gt_right">
 
-119.93
+81.44
 
 </td>
 
 <td class="gt_row gt_right">
 
-118.59
+86.27
 
 </td>
 
@@ -2118,103 +2119,103 @@ CIN
 
 <td class="gt_row gt_right">
 
-1
-
-</td>
-
-<td class="gt_row gt_right">
-
 0
 
 </td>
 
-<td class="gt_row gt_left">
-
-BAL
-
-</td>
-
 <td class="gt_row gt_right">
 
-55
+1
 
 </td>
 
 <td class="gt_row gt_left">
 
-Orlando Brown
+CIN
+
+</td>
+
+<td class="gt_row gt_right">
+
+4
 
 </td>
 
 <td class="gt_row gt_left">
 
-BRO570664
+Geno Atkins
 
 </td>
 
 <td class="gt_row gt_left">
 
-00-0034752
-
-</td>
-
-<td class="gt_row gt_right">
-
-78
-
-</td>
-
-<td class="gt_row gt_right">
-
-2560981
+ATK216644
 
 </td>
 
 <td class="gt_row gt_left">
 
-T
+00-0027720
+
+</td>
+
+<td class="gt_row gt_right">
+
+97
+
+</td>
+
+<td class="gt_row gt_right">
+
+496762
 
 </td>
 
 <td class="gt_row gt_left">
 
-OL
+DT
 
 </td>
 
 <td class="gt_row gt_left">
 
-2019-11-10 19:46:25
+DL
+
+</td>
+
+<td class="gt_row gt_left">
+
+2019-11-10 19:46:20
 
 </td>
 
 <td class="gt_row gt_right">
 
-61.53
+54.74
 
 </td>
 
 <td class="gt_row gt_right">
 
-31.17
+29.84
 
 </td>
 
 <td class="gt_row gt_right">
 
-0.02
+0.01
 
 </td>
 
 <td class="gt_row gt_right">
 
-272.90
+81.44
 
 </td>
 
 <td class="gt_row gt_right">
 
-295.79
+84.09
 
 </td>
 
@@ -2246,12 +2247,13 @@ NA
 
 In my opinion, the most fun way to get started with tracking data is
 through visualizations. To that end, we can use the `plot_play_frame()`
-function to plot a given frame from a play.
+function to plot any given frame in a play.
 
 It’s important to note that the tracking data contains the entire
 runtime of the play, including all of the dead time prior to the line
 being set, and in some cases even the team celebrations after a
-touchdown is scored. So let’s first find the ‘endpoints’ of the play:
+touchdown is scored. So let’s first find the ‘frame interval’ of the
+play:
 
 ``` r
 first_frame <- play_data %>%
@@ -2315,8 +2317,8 @@ plot_play_frame(play_data_ = play_data, frame_ = 220, velocities_ = F, voronoi_ 
 ![](README_files/figure-gfm/plot_frame_vor-1.png)<!-- -->
 
 The final in-built function we can use is `plot_play_sequence()`, which
-plots frames between a `first_frame_` and `final_frame_` at evenly
-spaced
+plots `n_` number of frames between a `first_frame_` and `final_frame_`
+at evenly spaced
 intervals:
 
 ``` r
@@ -2386,8 +2388,8 @@ player_data$v_x <- sin(player_data$dir_rad) * player_data$s
 player_data$v_y <- cos(player_data$dir_rad) * player_data$s
 ```
 
-Next, we need to identify the fastest players at each frame, and merge
-that information with our `player_data`:
+Finally, we’ll identify the fastest players on each team in every frame,
+and merge that information with our `player_data`:
 
 ``` r
 #  there are assuredly better ways to do this
