@@ -1,7 +1,7 @@
 library(readr)
 library(dplyr)
 
-list_highlights <- function(highlights_index_=NULL, team_=NULL, season_=NULL) {
+fetch_highlights_list <- function(highlights_index_=NULL, team_=NULL, season_=NULL) {
   teams <- c(
     "ARI", "ATL", "BAL", "BUF", "CAR", "CHI", "CIN", "CLE",
     "DAL", "DEN", "DET", "GB", "HOU", "IND", "JAX", "KC",
@@ -13,7 +13,7 @@ list_highlights <- function(highlights_index_=NULL, team_=NULL, season_=NULL) {
   max_season <- 2019
   
   if(is.null(highlights_index_)) {
-    highlights_index_ <- readr::read_tsv("https://raw.githubusercontent.com/asonty/ngs_highlights/intro/utils/data/nfl_ngs_highlights_index.tsv")
+    highlights_index_ <- suppressMessages(readr::read_tsv("https://raw.githubusercontent.com/asonty/ngs_highlights/intro/utils/data/nfl_ngs_highlights_index.tsv"))
   }
   
   if (!is.null(team_)) {
@@ -37,15 +37,15 @@ list_highlights <- function(highlights_index_=NULL, team_=NULL, season_=NULL) {
   return(highlights_index_)
 }
 
-get_play_data <- function(highlights_index_=NULL, playKey_) {
+fetch_play_data <- function(highlights_index_=NULL, playKey_) {
   if(is.null(highlights_index_)) {
-    highlights_index_ <- readr::read_tsv("https://raw.githubusercontent.com/asonty/ngs_highlights/intro/utils/data/nfl_ngs_highlights_index.tsv")
+    highlights_index_ <- fetch_highlights_list()
   }
   
   play <- highlights_index_ %>% filter(playKey == playKey_)
   
   play_file <- paste(
-    "https://raw.githubusercontent.com/asonty/ngs_highlights/intro/data/",
+    "https://raw.githubusercontent.com/asonty/ngs_highlights/intro/play_data/",
     play$season, "_",
     play$team, "_",
     play$gameId, "_",
@@ -53,7 +53,7 @@ get_play_data <- function(highlights_index_=NULL, playKey_) {
     sep=""
   )
   
-  play_data <- readr::read_tsv(play_file)
+  play_data <- suppressMessages(readr::read_tsv(play_file))
   
   return(play_data)
 }

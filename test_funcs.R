@@ -178,7 +178,7 @@ first_frame <- play_data %>%
   pull()
 
 final_frame <- play_data %>% 
-  filter(event == "tackle" | event == "touchdown") %>% 
+  filter(event == "tackle" | event == "touchdown" | event == "out_of_bounds") %>% 
   distinct(frame) %>% 
   slice_max(frame) %>% 
   pull() + 10
