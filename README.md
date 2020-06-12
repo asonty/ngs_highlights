@@ -14,9 +14,9 @@ from the most recent Big Data Bowl.*
 Tracking data has been billed as “the future of sports analytics,” but
 it’s notoriously difficult to both acquire and use. This repo was
 created to help alleviate those issues; it contains tracking data from
-the NFL’s Next Gen Stats (NGS) Highlights for 2017-2019 seasons, as well
-as a few Rscripts with helper functions to make it easier to work with
-the data.
+the NFL’s Next Gen Stats (NGS) Highlights from the 2017-2019 seasons, as 
+well as a few Rscripts with helper functions to make it easier to work 
+with the data.
 
 In this walk-through, we will:
 
